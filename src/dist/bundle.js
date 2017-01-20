@@ -78,9 +78,13 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'p',
+	        'div',
 	        null,
-	        'Fine'
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Fine'
+	        )
 	      );
 	    }
 	  }]);

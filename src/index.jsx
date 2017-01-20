@@ -3,7 +3,11 @@ import {render} from 'react-dom';
 
 class App extends React.Component {
   render () {
-    return <p>Fine</p>;
+    return ( 
+      <div>
+        <p>Fine</p>
+      </div>
+    );
   }
 }
 
