@@ -5,7 +5,7 @@ class App extends React.Component {
   render () {
     return ( 
       <div>
-        <p>Fine</p>
+        <p>Symbol: {this.state.symbol}</p>
       </div>
     );
   }
