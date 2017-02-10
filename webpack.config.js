@@ -8,8 +8,7 @@ var SERVICES_DIR = path.resolve(__dirname, 'src/services');
 
 var config = {
   entry: {     
-    app: APP_DIR + '/index.jsx',
-    tickerNumbersService: SERVICES_DIR + '/tickerNumbers.js'
+    app: APP_DIR + '/tickerStats.jsx'
   },
   
   output: {
