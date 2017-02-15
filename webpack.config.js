@@ -8,12 +8,13 @@ var SERVICES_DIR = path.resolve(__dirname, 'src/services');
 
 var config = {
   entry: {     
-    app: APP_DIR + '/tickerStats.jsx'
+    stats: APP_DIR + '/stats.jsx',
+    search: APP_DIR + '/search.jsx'
   },
   
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   
   module : {

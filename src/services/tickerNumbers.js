@@ -18,13 +18,13 @@ var getTickerInfoAsJson = function(ticker, callback) {
         },
 
         }).done(function(soapResponse) {
-            callback(DeserializeXml(soapResponse));
+            callback(xmlToJson(soapResponse));
         }).fail(function(soapResponse) {
             console.log("failure: " + soapResponse)
         }); 
 }
 
-function DeserializeXml(doc) {
+var xmlToJson = function(doc) {
 
     var stockSymbol = doc.getElementsByTagName("StockSymbol")[0].childNodes[0].nodeValue;
     var lastTradeAmount = doc.getElementsByTagName("LastTradeAmount")[0].childNodes[0].nodeValue;
