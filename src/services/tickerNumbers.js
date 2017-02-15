@@ -3,31 +3,38 @@ var soap = require('jquery.soap');
 var getTickerInfoAsJson = function(ticker, callback) {
 
     soap({
-        url: 'http://www.webservicex.net/stockquote.asmx',
+        url: 'http://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx',
         method: 'GetQuote',
         soap12: true,
         appendMethodToURL: false,
         
         envAttributes: {
-            'xmlns': 'http://www.webserviceX.NET/'
+            'xmlns': 'http://ws.cdyne.com/'
         },
 
         data: {
-            symbol: ticker,
+            StockSymbol: ticker,
+            LicenseKey: 0
         },
 
         }).done(function(soapResponse) {
-            console.log(serializeXml(soapResponse));
+            callback(DeserializeXml(soapResponse));
         }).fail(function(soapResponse) {
             console.log("failure: " + soapResponse)
         }); 
 }
 
-function serializeXml(doc) {
-    var serializer = new XMLSerializer();
-    var serializedXml = serializer.serializeToString(doc);
+function DeserializeXml(doc) {
+
+    var stockSymbol = doc.getElementsByTagName("StockSymbol")[0].childNodes[0].nodeValue;
+    var lastTradeAmount = doc.getElementsByTagName("LastTradeAmount")[0].childNodes[0].nodeValue;
     
-    return serializedXml.replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+    var data = { 
+        "StockSymbol": stockSymbol, 
+        "LastTradeAmount": lastTradeAmount 
+    };
+    
+    return data;
 }
 
 module.exports = getTickerInfoAsJson;
