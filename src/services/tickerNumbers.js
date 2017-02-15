@@ -1,7 +1,6 @@
 var soap = require('jquery.soap');
-var $ = require('jquery');
 
-var getTickerInfoAsJsonImpl = function(symbol, callback) {
+var getTickerInfoAsJson = function(ticker, callback) {
 
     soap({
         url: 'http://www.webservicex.net/stockquote.asmx',
@@ -14,28 +13,21 @@ var getTickerInfoAsJsonImpl = function(symbol, callback) {
         },
 
         data: {
-            symbol: symbol
+            symbol: ticker,
         },
 
-        success: function (soapResponse) {
-            soapResponse = soapResponse.toString().replace(/&lt;/g,'<').replace(/&gt;/g,'>');
-            callback(soapResponse);
-        },
-        
-        error: function (soapResponse) {
-            console.log("po: " + soapResponse)
-        }
-    });    
+        }).done(function(soapResponse) {
+            console.log(serializeXml(soapResponse));
+        }).fail(function(soapResponse) {
+            console.log("failure: " + soapResponse)
+        }); 
 }
 
-var getTickerInfoAsJson = function(symbol) {
-    var tickerInfo;
+function serializeXml(doc) {
+    var serializer = new XMLSerializer();
+    var serializedXml = serializer.serializeToString(doc);
     
-    getTickerInfoAsJsonImpl(symbol, function(result) {
-        tickerInfo = result;
-    });
-    
-    return tickerInfo;
+    return serializedXml.replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 }
 
 module.exports = getTickerInfoAsJson;

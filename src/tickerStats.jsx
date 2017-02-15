@@ -4,10 +4,18 @@ import getTickerInfoAsJson from './services/tickerNumbers.js'
 
 class TickerStats extends React.Component {
   
+  componentDidMount() {
+    console.log("mounted");
+  }
+  
+  tickerCallBack(result) {
+    console.log(result)
+  }
+  
   render () {
     return ( 
       <div>
-        <p>Symbol {console.log(getTickerInfoAsJson("ATVI"))}</p>
+        <p>Symbol {getTickerInfoAsJson("ATVI", this.tickerCallBack)}</p>
       </div>
     )
   }
