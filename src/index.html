@@ -19,7 +19,16 @@
     <div class="container">
       
       <div id="stats"></div>
-      <div id="search"></div>          
+      
+        <div className="row"> 
+            <div className="col-md-6 offset-md-2">
+              <input type="text" className="form-control" placeholder="Ticker symbol..." />
+            </div>
+            
+            <div className="col-md-4">
+              <button type="button" id="searchTicker" className="btn btn-primary btn-primary">Search</button>
+            </div>
+        </div>         
       
       <div class="row">
         <div class="col-md-4 offset-md-2">TICKER NUMBERS</div>
@@ -28,8 +37,7 @@
       
     </div>
     
-    <script src="dist/search.bundle.js"></script>
-    <script src="dist/stats.bundle.js"></script>
+    <script src="dist/bundle.js"></script>
 </body>
 
 </html>

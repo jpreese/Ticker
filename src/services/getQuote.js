@@ -1,6 +1,6 @@
 var soap = require('jquery.soap');
 
-var getTickerInfoAsJson = function(ticker, callback) {
+var getQuoteAsJson = function(ticker, callback) {
 
     soap({
         url: 'http://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx',
@@ -37,4 +37,4 @@ var xmlToJson = function(doc) {
     return data;
 }
 
-module.exports = getTickerInfoAsJson;
+module.exports = getQuoteAsJson;
