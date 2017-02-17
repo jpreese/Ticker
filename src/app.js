@@ -1,13 +1,15 @@
 var $ = require('jquery');
 var getQuote = require('./services/getQuote.js');
 var getLogo = require('./services/getLogo.js');
+var searchHistory = require('./services/searchHistory.js');
 
 $(document).ready(function() {
     
     $("#searchControl").click(function() {
         var tickerInputValue = $("#tickerInput").val();
         getQuote(tickerInputValue, tickerInfoCallback);
-        getLogo(tickerInputValue, logoCallback)
+        searchHistory.getHistory(getHistoryCallback);
+        //getLogo(tickerInputValue, logoCallback)
     });
     
 });
@@ -22,4 +24,8 @@ var tickerInfoCallback = function(result) {
 var logoCallback = function(result) {
     var logoUrl = $(result).find("URL").text();
     $("#logo").attr("src", logoUrl);
+}
+
+var getHistoryCallback = function() {
+    alert("history");
 }
