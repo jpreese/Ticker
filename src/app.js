@@ -1,10 +1,18 @@
+var $ = require('jquery');
 var getQuote = require('./services/getQuote.js');
 
-var searchControl = document.getElementById("searchTicker");
-searchControl.onclick = function() {
-    getQuote("ATVI", searchTickerCallback);
-}
+$(document).ready(function() {
+    
+    $("#searchControl").click(function() {
+        var tickerInputValue = $("#tickerInput").val();
+        getQuote(tickerInputValue, searchTickerCallback);
+    });
+    
+});
 
 var searchTickerCallback = function(result) {
-    console.log(result);
+    $("#companyName").text(result.CompanyName);
+    $("#openValue").text(result.OpenAmount);
+    $("#highValue").text(result.DayHigh);
+    $("#lowValue").text(result.DayLow);
 }
