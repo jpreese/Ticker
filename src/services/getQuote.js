@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var soap = require('jquery.soap');
 
 var getQuoteAsJson = function(ticker, callback) {
@@ -26,12 +27,16 @@ var getQuoteAsJson = function(ticker, callback) {
 
 var xmlToJson = function(doc) {
 
-    var stockSymbol = doc.getElementsByTagName("StockSymbol")[0].childNodes[0].nodeValue;
-    var lastTradeAmount = doc.getElementsByTagName("LastTradeAmount")[0].childNodes[0].nodeValue;
+    var companyName = $(doc).find("CompanyName").text();
+    var openAmount = $(doc).find("OpenAmount").text();
+    var dayHigh = $(doc).find("DayHigh").text();
+    var dayLow = $(doc).find("DayLow").text();
     
     var data = { 
-        "StockSymbol": stockSymbol, 
-        "LastTradeAmount": lastTradeAmount 
+        "CompanyName": companyName, 
+        "OpenAmount": openAmount,
+        "DayHigh": dayHigh,
+        "DayLow": dayLow 
     };
     
     return data;
