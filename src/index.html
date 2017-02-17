@@ -17,23 +17,32 @@
     </nav>
 
     <div class="container">
-      
-      <div id="stats"></div>
-      
-        <div className="row"> 
-            <div className="col-md-6 offset-md-2">
-              <input type="text" className="form-control" placeholder="Ticker symbol..." />
+            
+        <div class="row"> 
+            <div class="col-md-6 offset-md-2">
+                <input type="text" id="tickerInput" class="form-control" placeholder="Ticker symbol..." />
             </div>
             
-            <div className="col-md-4">
-              <button type="button" id="searchTicker" className="btn btn-primary btn-primary">Search</button>
+            <div class="col-md-4">
+                <button type="button" id="searchControl" class="btn btn-primary btn-primary">Search</button>
             </div>
         </div>         
       
-      <div class="row">
-        <div class="col-md-4 offset-md-2">TICKER NUMBERS</div>
-        <div class="col-md-4 offset-md-2">TICKER GRAPH</div>
-      </div>
+        <div class="row">
+            
+            <div class="col-md-4 offset-md-2">
+                <p><b>Company:</b> <span id="companyName">N/A</span></p>
+                <p><b>Open:</b> <span id="openValue">N/A</span></p>
+                <p><b>High:</b> <span id="highValue">N/A</span></p>
+                <p><b>Low:</b> <span id="lowValue">N/A</span></p>
+                </p>
+            </div>
+            
+            <div class="col-md-4 offset-md-2">
+                <span id="company_description"></span>
+            </div>
+            
+        </div>
       
     </div>
     
