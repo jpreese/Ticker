@@ -4,6 +4,7 @@
 <head>
     <title>Ticker</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -31,15 +32,28 @@
         <div class="row">
             
             <div class="col-md-4 offset-md-2">
-                <p><b>Company:</b> <span id="companyName">N/A</span></p>
-                <p><b>Open:</b> <span id="openValue">N/A</span></p>
-                <p><b>High:</b> <span id="highValue">N/A</span></p>
-                <p><b>Low:</b> <span id="lowValue">N/A</span></p>
-                </p>
+                <table>
+                    <tr>
+                        <td>Company</td>
+                        <td id="companyName">N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Open</td>
+                        <td id="openValue">N/A</td>
+                    </tr>
+                    <tr>
+                        <td>High</td>
+                        <td id="highValue">N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td id="lowValue">N/A</td>
+                    </tr>
+                </table>
             </div>
             
             <div class="col-md-4 offset-md-2">
-                <span id="company_description"></span>
+                <img id="logo" src="" />
             </div>
             
         </div>
