@@ -12,12 +12,16 @@
     "webpack": "^1.14.0"
   },
   "devDependencies": {
+    "jsdom": "^9.11.0",
+    "jsdom-global": "^2.1.1",
     "json-loader": "^0.5.4",
+    "mocha": "^3.2.0",
     "webpack-glob-entries": "^1.0.1"
   },
   "scripts": {
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "test": "mocha src/tests"
   },
   "author": "",
   "license": "ISC"

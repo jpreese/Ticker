@@ -48,3 +48,5 @@ var resetUI = function() {
     $("#tickerInput").val("");
     $("#tickerInput").focus();
 }
+
+module.exports = tickerInfoCallback;
