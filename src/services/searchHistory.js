@@ -5,7 +5,6 @@ var addHistory = function(ticker, callback) {
     
     $.post({
        url: baseUrl,
-       type: 'POST',
        data: "Ticker=" + ticker,
        success: callback
     });
@@ -16,7 +15,6 @@ var getHistory = function(callback) {
     
     $.get({
         url: baseUrl,
-        type: 'GET',
         success: callback
     });
     
