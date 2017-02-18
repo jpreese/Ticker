@@ -21,8 +21,8 @@ var tickerInfoCallback = function(result) {
     $("#openValue").text(result.OpenAmount);
     $("#highValue").text(result.DayHigh);
     $("#lowValue").text(result.DayLow);
-    
-    searchHistory.addHistory(result.CompanyName, searchHistory.getHistory(getHistoryCallback));
+
+    searchHistory.addHistory(result.CompanyName, addHistoryCallback);
 }
 
 var logoCallback = function(result) {
@@ -32,10 +32,14 @@ var logoCallback = function(result) {
 
 var getHistoryCallback = function(history) {
     var previousSearches = $("#previousSearches");
-    
+
     previousSearches.html("");
     
     $.each(history, function(index, value){
-        previousSearches.html(previousSearches.html() + '<li>' + value.Search +'</li>')
+        previousSearches.html(previousSearches.html() + '<li>' + value.Ticker +'</li>')
     });
+}
+
+var addHistoryCallback = function() {
+    searchHistory.getHistory(getHistoryCallback);
 }
