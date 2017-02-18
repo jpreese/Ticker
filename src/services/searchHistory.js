@@ -1,12 +1,12 @@
 var $ = require('jquery');
-var baseUrl = "http://localhost:51764/api/History/";
+var baseUrl = "http://localhost:51764/api/history";
 
-var addHistory = function(search) {
+var addHistory = function(ticker, callback) {
     
-    $.ajax({
+    $.post({
        url: baseUrl,
        type: 'POST',
-       data: {entry: search},
+       data: "Ticker=" + ticker,
        success: callback
     });
     
@@ -14,7 +14,7 @@ var addHistory = function(search) {
 
 var getHistory = function(callback) {
     
-    $.ajax({
+    $.get({
         url: baseUrl,
         type: 'GET',
         success: callback
