@@ -4,19 +4,19 @@ var getLogo = require('./services/getLogo.js');
 var searchHistory = require('./services/searchHistory.js');
 
 $(document).ready(function() {
-    
     searchHistory.getHistory(getHistoryCallback);
     
     $("#searchControl").click(function() {
         var tickerInputValue = $("#tickerInput").val();
         getQuote(tickerInputValue, tickerInfoCallback);
-        getLogo(tickerInputValue, logoCallback)
+        getLogo(tickerInputValue, logoCallback);
+        
+        resetUI();
     });
     
 });
 
 var tickerInfoCallback = function(result) {
-    
     $("#companyName").text(result.CompanyName);
     $("#openValue").text(result.OpenAmount);
     $("#highValue").text(result.DayHigh);
@@ -42,4 +42,9 @@ var getHistoryCallback = function(history) {
 
 var addHistoryCallback = function() {
     searchHistory.getHistory(getHistoryCallback);
+}
+
+var resetUI = function() {
+    $("#tickerInput").val("");
+    $("#tickerInput").focus();
 }
